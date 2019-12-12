@@ -183,6 +183,7 @@ export class Guardian {
         });
     }
     onAjaxReport() {
+        const self = this;
         const timeRecordArray = [];
         const oldXHR = (window as any).XMLHttpRequest;
         function ajaxEventTrigger(e) {
@@ -235,7 +236,7 @@ export class Guardian {
             const status = timeRecordArray[i].event.detail.status;
             const statusText = timeRecordArray[i].event.detail.statusText;
             const loadTime = timeRecordArray[i].timeStamp;
-            if (!url || url.indexOf(this.url) !== -1) return;
+            if (!url || url.indexOf(self.url) !== -1) return;
             const httpStart = new Network({uploadType: 'network', simpleUrl, url, status, statusText, statusResult: '发起请求', responseText: '', currentTime: loadTime, loadTime: 0});
             const httpEnd = new Network({uploadType: 'network', simpleUrl, url, status, statusText, statusResult: '请求返回', responseText, currentTime, loadTime});
             httpStart.setLocalStorage('network', httpStart);
