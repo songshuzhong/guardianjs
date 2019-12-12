@@ -1,7 +1,7 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: './src/guardian.ts',
+    entry: './index.ts',
     output: {
         filename: 'guardian.[hash:6].js',
         libraryTarget: 'window'

@@ -1,7 +1,7 @@
-import {Performance} from "./performance";
-import {Resource} from "./Resource";
-import {Network} from "./network";
-import {Script} from "./script";
+import {Performance} from './src/performance';
+import {Resource} from './src/resource';
+import {Network} from './src/network';
+import {Script} from './src/script';
 
 export class Guardian {
     public url: string;
@@ -116,7 +116,7 @@ export class Guardian {
         return resource;
     }
     onInit() {
-        window.onload = () => this.onLoad();
+        (window as any).onload = this.onLoad();
     }
     onLoad() {
         this.setFetch();
