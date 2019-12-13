@@ -109,6 +109,7 @@ export class Guardian {
             arry && arry.push(new Entry(
                 {
                     name: item.name,
+                    uploadType: type,
                     duration: item.duration.toFixed(2),
                     size: item.transferSize
                 }
