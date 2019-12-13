@@ -2,6 +2,7 @@ import {Performance} from './src/performance';
 import {Resource} from './src/resource';
 import {Network} from './src/network';
 import {Script} from './src/script';
+import {Entry} from './src/entry';
 
 export class Guardian {
     public url: string;
@@ -105,11 +106,13 @@ export class Guardian {
                 type = item.initiatorType;
             }
             const arry = resource[type];
-            arry && arry.push({
-                name: item.name.split('/').pop(),
-                duration: item.duration.toFixed(2),
-                size: item.transferSize
-            })
+            arry && arry.push(new Entry(
+                {
+                    name: item.name,
+                    duration: item.duration.toFixed(2),
+                    size: item.transferSize
+                }
+            ))
         });
 
         return resource;
