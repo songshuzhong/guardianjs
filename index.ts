@@ -106,10 +106,9 @@ export class Guardian {
             }
             const arry = resource[type];
             arry && arry.push({
-                name: item.name,
+                name: item.name.split('/').pop(),
                 duration: item.duration.toFixed(2),
-                size: item.transferSize,
-                protocol: item.nextHopProtocol,
+                size: item.transferSize
             })
         });
 
