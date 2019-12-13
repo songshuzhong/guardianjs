@@ -29,7 +29,7 @@ export class Guardian {
                     if (!res.ok) {
                         const info = {
                             infoType: 'fetch',
-                            uploadType: 'fetch',
+                            uploadType: 'network',
                             simpleUrl: res.url,
                             status: res.status,
                             statusText: res.statusText,
@@ -67,6 +67,7 @@ export class Guardian {
         const resource = this.getResources();
         return {
             ...resource,
+            uploadType: 'performance',
             redirect: t.redirectEnd - t.redirectStart,            // 重定向耗时
             whiteScreen: t.responseStart - t.navigationStart,            // 白屏时间
             dom: t.domComplete - t.domLoading,            // DOM 渲染耗时
@@ -146,7 +147,7 @@ export class Guardian {
             col,
             url,
             infoType: 'javascript',
-            uploadType: 'javascript',
+            uploadType: 'script',
             msg: error && error.stack ? error.stack : msg
         };
         const script = new Script(info);
@@ -178,7 +179,7 @@ export class Guardian {
         window.addEventListener('unhandledrejection', (e: any) => {
             const info = {
                 infoType: 'promise',
-                uploadType: 'javascript',
+                uploadType: 'script',
                 msg: (e.reason && e.reason.msg) || e.reason || ''
             };
             const script = new Script(info);
