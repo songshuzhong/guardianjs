@@ -1,9 +1,11 @@
 export class BaseClass {
     public happenTime;
-    public webMonitorId: string;
+    public webMonitorId;
     public simpleUrl;
     public completeUrl;
+    public device;
     constructor() {
+        this.device = this.getDevice();
         this.happenTime = new Date().getTime();
         this.webMonitorId = 'haokan-next';
         this.simpleUrl = window.location.href.split('?')[0].replace('#', '');
@@ -113,7 +115,7 @@ export class BaseClass {
         // Webview
         device.webView = (iphone || ipad || ipod) && ua.match(/.*AppleWebKit(?!.*Safari)/i);
 
-        return device;
+        return JSON.stringify(device);
     }
     setLocalStorage(type, storage) {
         let monitor = sessionStorage.getItem('monitor');

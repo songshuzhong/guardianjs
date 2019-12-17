@@ -1,7 +1,6 @@
 import {BaseClass} from "./base";
 
 export class Pageview extends BaseClass {
-    public device: Object;
     public uploadType: string;
     public monitorIp: string;
     public country: string;
@@ -13,7 +12,6 @@ export class Pageview extends BaseClass {
 
     constructor(option) {
         super();
-        this.device = this.getDevice();
         this.uploadType = option.uploadType;
         this.monitorIp = option.ip;
         this.country = option.country || 'china';
