@@ -4,10 +4,12 @@ export class BaseClass {
     public simpleUrl;
     public completeUrl;
     public device;
+    public pageTitle;
     constructor() {
         this.device = this.getDevice();
         this.happenTime = new Date().getTime();
         this.webMonitorId = 'haokan-next';
+        this.pageTitle = document.title;
         this.simpleUrl = window.location.href.split('?')[0].replace('#', '');
         this.completeUrl = this.b64EncodeUnicode(window.location.href);
     }
