@@ -1,6 +1,6 @@
 export class BaseClass {
+    static webMonitorId;
     public happenTime;
-    public webMonitorId;
     public simpleUrl;
     public completeUrl;
     public device;
@@ -8,7 +8,6 @@ export class BaseClass {
     constructor() {
         this.device = this.getDevice();
         this.happenTime = new Date().getTime();
-        this.webMonitorId = 'haokan-next';
         this.pageTitle = document.title;
         this.simpleUrl = window.location.href.split('?')[0].replace('#', '');
         this.completeUrl = this.b64EncodeUnicode(window.location.href);

@@ -1,3 +1,4 @@
+import {BaseClass} from './src/base';
 import {Performance} from './src/performance';
 import {Resource} from './src/resource';
 import {Network} from './src/network';
@@ -6,11 +7,11 @@ import {Entry} from './src/entry';
 
 export class Guardian {
     public url: string;
-    public basename: string;
+    public webMonitorId: string;
     public cache: Array<string>;
     constructor(option) {
+        BaseClass.webMonitorId = option.webMonitorId;
         this.url = option.url;
-        this.basename = option.basename;
         this.cache = [];
         sessionStorage.setItem('monitor', JSON.stringify({
             performance: {},
